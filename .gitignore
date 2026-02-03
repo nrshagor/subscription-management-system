@@ -1,0 +1,55 @@
+# ======================
+# Laravel (backend)
+# ======================
+backend/vendor
+backend/node_modules
+backend/.env
+backend/.env.*
+backend/storage/*.key
+backend/public/storage
+backend/public/hot
+backend/public/build
+backend/.phpunit.cache
+backend/.phpunit.result.cache
+backend/auth.json
+backend/Homestead.json
+backend/Homestead.yaml
+backend/npm-debug.log
+backend/yarn-error.log
+
+# ======================
+# React (frontend)
+# ======================
+frontend/node_modules
+frontend/dist
+frontend/dist-ssr
+frontend/*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+# ======================
+# Logs
+# ======================
+logs
+*.log
+
+# ======================
+# IDE / Editor
+# ======================
+.vscode
+.idea
+.fleet
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
