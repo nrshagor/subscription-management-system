@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Lock,
   Mail,
@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Sparkles,
   Shield,
+  ArrowRight,
 } from "lucide-react";
 import { useTheme } from "../context/useTheme";
 
@@ -239,6 +240,21 @@ const Login = () => {
                   <span className="font-medium">Password:</span> demo123
                 </div>
               </div>
+            </div>
+
+            <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-800">
+              <p
+                className={`text-sm ${dark ? "text-gray-400" : "text-gray-600"}`}
+              >
+                Don't have an account?{" "}
+                <Link
+                  to="/register"
+                  className="group inline-flex items-center gap-1 text-purple-600 dark:text-purple-400 font-semibold hover:underline transition-all duration-200"
+                >
+                  Sign in here
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </Link>
+              </p>
             </div>
           </form>
         </div>
