@@ -2,18 +2,25 @@ import React, { useEffect, useState } from "react";
 import type { VendorType } from "../types/vendorType";
 import { apiFetch } from "../services/api";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Vendors = () => {
   const [vendors, setVendors] = useState<VendorType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     apiFetch("/vendors")
       .then(setVendors)
+      .catch((err: unknown) => {
+        if (err instanceof Error) setError(err.message);
+        else setError("Failed to load vendors");
+      })
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p className="p-4">Loading vendors...</p>;
+  if (loading) return <Loader />;
+  if (error) return <p className="p-4 text-red-600">{error}</p>;
 
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
