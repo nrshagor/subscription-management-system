@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     isActive
-      ? "bg-white/20 dark:bg-gray-700/50 text-white px-4 py-2.5 rounded-lg font-semibold flex items-center gap-2.5 transition-all duration-300 shadow-inner"
+      ? "bg-gray-200/50 dark:bg-gray-700/50 text-black dark:text-white px-4 py-2.5 rounded-lg font-semibold flex items-center gap-2.5 transition-all duration-300 shadow-inner"
       : "text-black dark:text-gray-200  hover:dark:text-white hover:bg-black/10 hover:dark:bg-white/10 dark:hover:bg-gray-700/30 px-4 py-2.5 rounded-lg flex items-center gap-2.5 transition-all duration-300";
 
   return (
@@ -89,13 +89,17 @@ const Navbar = () => {
             {/* Auth Section */}
             {user ? (
               <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-3 bg-gray-800/30 dark:bg-gray-900/50 px-3 py-2 rounded-full border border-gray-700/50 dark:border-gray-700">
+                <div className="flex items-center space-x-3 bg-gray-200/30 dark:bg-gray-900/50 px-3 py-2 rounded-full border border-gray-300/50 dark:border-gray-700">
                   <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
                     <User className="h-4 w-4" />
                   </div>
                   <div className="text-sm">
-                    <div className="font-medium">{user.name || "User"}</div>
-                    <div className="text-xs text-gray-400">Logged in</div>
+                    <div className="font-medium text-black dark:text-white">
+                      {user.name || "User"}
+                    </div>
+                    <div className="text-xs text-gray-700 dark:text-gray-400">
+                      Logged in
+                    </div>
                   </div>
                 </div>
                 <button
