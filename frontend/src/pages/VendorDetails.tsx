@@ -8,6 +8,7 @@ const VendorDetails = () => {
   const { id } = useParams();
   const [vendor, setVendor] = useState<VendorType | null>(null);
   const [plans, setPlans] = useState<PlanType[]>([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     apiFetch(`/vendors/${id}/plans`).then((data) => {
@@ -16,9 +17,22 @@ const VendorDetails = () => {
     });
   }, [id]);
 
+  const purchasePlan = async (planId: number) => {
+    try {
+      await apiFetch("/subscribe", {
+        method: "POST",
+        body: JSON.stringify({ plan_id: planId }),
+      });
+      setMessage("Subscription purchased successfully!");
+    } catch (err: unknown) {
+      if (err instanceof Error) setMessage(err.message);
+    }
+  };
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">{vendor?.name} Plans</h1>
+      {message && <p className="mb-3 text-green-600">{message}</p>}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {plans.map((plan) => (
@@ -31,7 +45,10 @@ const VendorDetails = () => {
               ))}
             </ul>
 
-            <button className="mt-3 bg-blue-600 text-white px-3 py-1 rounded">
+            <button
+              onClick={() => purchasePlan(plan.id)}
+              className="mt-3 bg-blue-600 text-white px-3 py-1 rounded"
+            >
               Purchase
             </button>
           </div>
