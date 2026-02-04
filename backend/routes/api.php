@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PlanController;
+use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,11 @@ Route::middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::post('/plans', [PlanController::class, 'store']);
     Route::put('/plans/{id}', [PlanController::class, 'update']);
     Route::delete('/plans/{id}', [PlanController::class, 'destroy']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/my-subscriptions', [SubscriptionController::class, 'mySubscriptions']);
+    Route::post('/subscribe', [SubscriptionController::class, 'purchase']);
+    Route::post('/upgrade', [SubscriptionController::class, 'upgrade']);
+    Route::get('/expire-subscriptions', [SubscriptionController::class, 'expireOldSubscriptions']);
 });
