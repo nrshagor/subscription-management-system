@@ -5,7 +5,7 @@ import Dashboard from "../pages/Dashboard";
 import Navbar from "../components/Navbar";
 import Vendors from "../pages/Vendors";
 import VendorDetails from "../pages/VendorDetails";
-
+import Products from "../pages/Products";
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -16,6 +16,7 @@ export default function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/vendors" element={<Vendors />} />
         <Route path="/vendors/:id" element={<VendorDetails />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );
