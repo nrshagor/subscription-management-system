@@ -263,16 +263,6 @@ const Login = () => {
         <div
           className={`mt-8 text-center ${dark ? "text-gray-500" : "text-gray-600"}`}
         >
-          <p className="text-sm">
-            By signing in, you agree to our{" "}
-            <a href="#" className="hover:underline">
-              Terms
-            </a>{" "}
-            and{" "}
-            <a href="#" className="hover:underline">
-              Privacy Policy
-            </a>
-          </p>
           <p className="text-xs mt-2">
             © {new Date().getFullYear()} VendorHub. All rights reserved.
           </p>
