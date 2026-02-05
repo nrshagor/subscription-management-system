@@ -140,6 +140,22 @@ Frontend will run at:
 http://localhost:5173
 ```
 
+## Test Credentials
+
+### Admin:
+
+```bash
+Email: admin@test.com
+Password: 123456
+```
+
+### User:
+
+```bash
+Email: user@test.com
+Password: 123456
+```
+
 ### API Authentication
 
 ```bash

@@ -20,7 +20,7 @@ const Login = () => {
   const { dark } = useTheme();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("admin@mail.com");
+  const [email, setEmail] = useState("admin@test.com");
   const [password, setPassword] = useState("123456");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -220,26 +220,66 @@ const Login = () => {
 
             {/* Demo credentials hint */}
             <div
-              className={`text-center p-4 rounded-xl ${dark ? "bg-gray-800/30" : "bg-blue-50/50"} border ${dark ? "border-gray-700" : "border-blue-100"}`}
+              className={`text-center p-4 rounded-xl ${
+                dark ? "bg-gray-800/30" : "bg-blue-50/50"
+              } border ${dark ? "border-gray-700" : "border-blue-100"}`}
             >
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-2 mb-3">
                 <Sparkles className="h-4 w-4 text-yellow-500" />
                 <p
-                  className={`text-sm font-medium ${dark ? "text-gray-300" : "text-gray-700"}`}
+                  className={`text-sm font-medium ${
+                    dark ? "text-gray-300" : "text-gray-700"
+                  }`}
                 >
                   Demo Credentials
                 </p>
               </div>
+
               <div
-                className={`grid grid-cols-2 gap-2 text-xs ${dark ? "text-gray-400" : "text-gray-600"}`}
+                className={`grid grid-cols-1 gap-2 text-xs ${
+                  dark ? "text-gray-400" : "text-gray-600"
+                }`}
               >
-                <div className="text-left">
-                  <span className="font-medium">Email:</span> admin@mail.com
+                <div>
+                  <span className="font-semibold">Admin:</span>
+                  <br />
+                  Email: admin@test.com
+                  <br />
+                  Password: 123456
                 </div>
-                <div className="text-right">
-                  <span className="font-medium">Password:</span> demo123
+
+                <div className="pt-2 border-t border-gray-300 dark:border-gray-700">
+                  <span className="font-semibold">User:</span>
+                  <br />
+                  Email: user@test.com
+                  <br />
+                  Password: 123456
                 </div>
               </div>
+            </div>
+
+            <div className="flex gap-2 mt-3 justify-center">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("admin@test.com");
+                  setPassword("123456");
+                }}
+                className="text-xs px-2 py-1 bg-blue-500 text-white rounded"
+              >
+                Use Admin
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("user@test.com");
+                  setPassword("123456");
+                }}
+                className="text-xs px-2 py-1 bg-purple-500 text-white rounded"
+              >
+                Use User
+              </button>
             </div>
 
             <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-800">
